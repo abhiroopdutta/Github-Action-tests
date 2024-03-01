@@ -14,6 +14,4 @@ jobs:
          EOF
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-      - run: bundle install
