@@ -2,14 +2,11 @@ name: My workflow
 on: [push]
 jobs:
   app_block:
-    strategy:
-      fail-fast: false
-      matrix:
-        gemfile: [ rails7 ]
     runs-on: ubuntu-latest
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
-      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/[rails7].gemfile
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
     steps:
+      - run: echo "gem 'rails', '~> 7.1', '>= 7.1.3'" > Gemfile
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
